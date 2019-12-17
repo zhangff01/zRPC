@@ -8,14 +8,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="rpc-common" />
         <module name="rpc-consumer" />
+        <module name="rpc-core" />
         <module name="rpc-provider" />
+        <module name="rpc-registry" />
         <module name="rpc-remote" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="rpc-common" target="1.5" />
       <module name="rpc-consumer" target="1.5" />
+      <module name="rpc-core" target="1.5" />
       <module name="rpc-provider" target="1.5" />
+      <module name="rpc-registry" target="1.5" />
       <module name="rpc-remote" target="1.5" />
       <module name="zRPC" target="1.5" />
     </bytecodeTargetLevel>
