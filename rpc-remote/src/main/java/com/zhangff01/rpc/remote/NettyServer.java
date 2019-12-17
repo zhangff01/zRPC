@@ -1,6 +1,10 @@
 package com.zhangff01.rpc.remote;
 
+import com.zhangff01.rpc.remote.handler.MyDecoder;
+import com.zhangff01.rpc.remote.handler.MyEncoder;
 import com.zhangff01.rpc.remote.handler.NettyServerHandler;
+import com.zhangff01.rpc.remote.model.RpcRequest;
+import com.zhangff01.rpc.remote.model.RpcResponse;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -10,11 +14,6 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.DelimiterBasedFrameDecoder;
-import io.netty.handler.codec.Delimiters;
-import io.netty.handler.codec.string.StringDecoder;
-import io.netty.handler.codec.string.StringEncoder;
-import io.netty.util.CharsetUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.InetSocketAddress;
@@ -50,9 +49,8 @@ public class NettyServer {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
-                            pipeline.addLast(new DelimiterBasedFrameDecoder(4096, Delimiters.lineDelimiter()));
-                            pipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
-                            pipeline.addLast(new StringEncoder(CharsetUtil.UTF_8));
+                            pipeline.addLast(new MyDecoder(RpcRequest.class));
+                            pipeline.addLast(new MyEncoder(RpcResponse.class));
                             pipeline.addLast(new NettyServerHandler());
                         }
                     })
