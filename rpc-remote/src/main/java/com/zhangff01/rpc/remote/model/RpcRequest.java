@@ -1,4 +1,4 @@
-package model;
+package com.zhangff01.rpc.remote.model;
 
 import lombok.Data;
 

@@ -15,13 +15,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="rpc-common" target="1.5" />
-      <module name="rpc-consumer" target="1.5" />
-      <module name="rpc-core" target="1.5" />
-      <module name="rpc-provider" target="1.5" />
-      <module name="rpc-registry" target="1.5" />
-      <module name="rpc-remote" target="1.5" />
-      <module name="zRPC" target="1.5" />
+      <module name="rpc-common" target="1.8" />
+      <module name="rpc-consumer" target="1.8" />
+      <module name="rpc-core" target="1.8" />
+      <module name="rpc-provider" target="1.8" />
+      <module name="rpc-registry" target="1.8" />
+      <module name="rpc-remote" target="1.8" />
+      <module name="zRPC" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

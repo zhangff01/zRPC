@@ -1,4 +1,6 @@
-import handler.NettyServerHandler;
+package com.zhangff01.rpc.remote;
+
+import com.zhangff01.rpc.remote.handler.NettyServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -31,7 +33,7 @@ public class NettyServer {
     private EventLoopGroup bossGroup;
     private EventLoopGroup workerGroup;
 
-    NettyServer(int port, int threadSize) {
+    public NettyServer(int port, int threadSize) {
         this.port = port;
         this.threadSize = threadSize;
     }
@@ -64,8 +66,12 @@ public class NettyServer {
             log.info("Rpc netty服务器启动成功 " + port);
             future.channel().closeFuture().sync();
         } catch (Exception e) {
-            bossGroup.shutdownGracefully();
-            workerGroup.shutdownGracefully();
+            shutdown();
         }
+    }
+
+    public void shutdown() {
+        bossGroup.shutdownGracefully();
+        workerGroup.shutdownGracefully();
     }
 }

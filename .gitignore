@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+zRPC.iml
+/rpc-common/rpc-common.iml
+/rpc-common/target/
+/rpc-consumer/rpc-consumer.iml
+/rpc-consumer/target/
+/rpc-core/rpc-core.iml
+/rpc-core/target/
+/rpc-provider/rpc-provider.iml
+/rpc-provider/target/
+/rpc-registry/rpc-registry.iml
+/rpc-registry/target/
+/rpc-remote/rpc-remote.iml
+/rpc-remote/target/

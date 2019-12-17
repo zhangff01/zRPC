@@ -1,4 +1,4 @@
-package model;
+package com.zhangff01.rpc.remote.model;
 
 import lombok.Data;
 
@@ -11,4 +11,8 @@ import lombok.Data;
 public class RpcResponse {
 
     private Object result;
+
+    public RpcResponse(Object object) {
+        this.result = object;
+    }
 }
