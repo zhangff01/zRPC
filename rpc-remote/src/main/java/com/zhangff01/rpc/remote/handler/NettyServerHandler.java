@@ -1,6 +1,7 @@
 package com.zhangff01.rpc.remote.handler;
 
 import com.zhangff01.rpc.registry.RegisterCenterService;
+import com.zhangff01.rpc.registry.impl.JvmRegisterCenter;
 import com.zhangff01.rpc.remote.model.RpcRequest;
 import com.zhangff01.rpc.remote.model.RpcResponse;
 import io.netty.channel.ChannelFutureListener;
@@ -25,10 +26,12 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
      */
     private static Map<String, Object> serviceObjects = new ConcurrentHashMap<>();
 
+    private RegisterCenterService registerCenterService = new JvmRegisterCenter();
+
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         RpcRequest rpcRequest = (RpcRequest) msg;
-        Class serviceClass = RegisterCenterService.getService(rpcRequest.getServiceName());
+        Class serviceClass = registerCenterService.getService(rpcRequest.getServiceName());
 
         if (serviceClass == null) {
             throw new Exception("没有找到类 " + rpcRequest.getServiceName());

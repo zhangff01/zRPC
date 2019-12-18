@@ -1,6 +1,7 @@
 package com.zhangff01.rpc.core;
 
 import com.zhangff01.rpc.registry.RegisterCenterService;
+import com.zhangff01.rpc.registry.impl.JvmRegisterCenter;
 import com.zhangff01.rpc.remote.NettyServer;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,6 +21,7 @@ public class RpcServerImpl implements RpcServer {
     private int port = 8989;
     private NettyServer nettyServer;
     private final static ExecutorService executor = Executors.newSingleThreadExecutor();
+    private RegisterCenterService registerCenterService;
 
     public RpcServerImpl() {
         init();
@@ -28,7 +30,8 @@ public class RpcServerImpl implements RpcServer {
     public RpcServerImpl(int port, int nThreads, String registerHost, Boolean isStart) {
         this.port = port;
         this.nThreads = nThreads;
-        RegisterCenterService.init(registerHost, port);
+        registerCenterService = new JvmRegisterCenter();
+        registerCenterService.init(registerHost, port);
         init();
         if (isStart.equals(Boolean.TRUE)) {
             start();
@@ -63,7 +66,7 @@ public class RpcServerImpl implements RpcServer {
 
     @Override
     public void register(String className, Class clazz) throws Exception {
-        RegisterCenterService.register(className, clazz);
+        registerCenterService.register(className, clazz);
     }
 
     @Override

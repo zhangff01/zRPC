@@ -15,6 +15,7 @@
         <module>rpc-provider</module>
         <module>rpc-core</module>
         <module>rpc-registry</module>
+        <module>rpc-cluster</module>
     </modules>
 
     <properties>

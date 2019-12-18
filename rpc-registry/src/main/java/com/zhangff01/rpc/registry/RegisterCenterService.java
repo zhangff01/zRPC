@@ -1,16 +1,11 @@
 package com.zhangff01.rpc.registry;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * @author zhangfeifei
  * @Description 注册中心
  * @create 2019/12/17
  */
-@Slf4j
-public class RegisterCenterService {
-
-    public static String x = "";
+public interface RegisterCenterService {
 
     /**
      * 通过类名获取服务
@@ -18,28 +13,29 @@ public class RegisterCenterService {
      * @param className 类名
      * @return
      */
-    public static Class getService(String className) {
-        //todo
-        return null;
-    }
+    Class getService(String className);
 
     /**
      * 初始化
      *
-     * @param registerHost host
+     * @param registerHost 注册中心地址
      * @param port         端口号
      */
-    public static void init(String registerHost, int port) {
-        //todo
-    }
+    void init(String registerHost, int port);
 
     /**
      * 注册服务
      *
-     * @param className
-     * @param clazz
+     * @param className 类名
+     * @param clazz     实现累
      */
-    public static void register(String className, Class clazz) {
-        //todo
-    }
+    void register(String className, Class clazz);
+
+    /**
+     * 服务提供方IPs
+     *
+     * @param className 类名
+     * @return
+     */
+    String getServiceIps(String className);
 }
