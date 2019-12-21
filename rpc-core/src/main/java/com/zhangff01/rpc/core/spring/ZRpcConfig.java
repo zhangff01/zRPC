@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @author zhangfeifei
- * @Description rpc配置dto
+ * @Description RPC的配置DTO
  * @create 2019/12/21
  */
 @Data
@@ -12,5 +12,5 @@ public class ZRpcConfig {
 
     private Integer port;
     private Integer nThreads;
-    private String zookeeperAddress;
+    private String registerHost;
 }

@@ -14,14 +14,12 @@
         <property name="registerHost" value="127.0.0.1:2181"/>
     </bean>
 
-    <!--服务注册 start-->
-    <util:map id="servicesMap" map-class="java.util.HashMap">
-        <entry key="com.zhangf01.rpc.provider.service.HelloService"
-               value="com.zhangf01.rpc.provider.service.HelloServiceImpl"/>
+    <util:map id="referenceMap" map-class="java.util.HashMap">
+        <entry key="helloService" value="com.zhangf01.rpc.provider.service.HelloService"/>
     </util:map>
-    <bean id="rpcServerFactory" class="com.zhangff01.rpc.core.spring.RpcServerFactory">
+
+    <bean id="myRpcReference" class="com.zhangff01.rpc.core.spring.ZRpcReference">
+        <property name="references" ref="referenceMap"/>
         <property name="zRpcConfig" ref="zRpcConfig"/>
-        <property name="services" ref="servicesMap"/>
     </bean>
-    <!--服务注册 end-->
 </beans>

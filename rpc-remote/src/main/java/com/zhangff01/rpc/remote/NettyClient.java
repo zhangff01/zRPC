@@ -26,7 +26,7 @@ public class NettyClient {
 
     private static Integer TIMEOUT = 1000;
 
-    public static Object send(RpcRequest rpcRequest, InetSocketAddress inetSocketAddress) {
+    public static RpcResponse send(RpcRequest rpcRequest, InetSocketAddress inetSocketAddress) {
         // Configure the client.
         EventLoopGroup group = new NioEventLoopGroup();
         NettyClientHandler nettyClientHandler = new NettyClientHandler();

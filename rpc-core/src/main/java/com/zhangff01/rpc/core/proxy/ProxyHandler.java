@@ -47,7 +47,7 @@ public class ProxyHandler implements InvocationHandler {
             return null;
         }
         Object result;
-        RpcResponse rpcResponse = (RpcResponse) NettyClient.send(rpcRequest, remoteAddress);
+        RpcResponse rpcResponse = NettyClient.send(rpcRequest, remoteAddress);
         result = rpcResponse.getResult();
         return result;
     }

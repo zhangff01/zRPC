@@ -1,21 +1,16 @@
-package com.zhangf01.rpc.provider.bootstrap;
+package com.zhangff01.rpc.consumer;
 
 import com.zhangf01.rpc.provider.service.HelloService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.io.IOException;
-
 /**
  * @author zhangfeifei
- * @Description 服务提供端启动类 通过spring
- * @create 2019/12/17
+ * @Description
+ * @create 2019/12/21
  */
-public class SpringBootStrap {
+public class ClientAppBySpring {
 
-    public static void main(String[] args) throws IOException {
-        //服务暴露
-        ClassPathXmlApplicationContext providerContext = new ClassPathXmlApplicationContext(new String[]{"z-rpc-provider.xml"});
-        providerContext.start();
+    public static void main(String[] args) {
         //消费方引用
         ClassPathXmlApplicationContext consumerContext = new ClassPathXmlApplicationContext(new String[]{"z-rpc-consumer.xml"});
         HelloService helloService = consumerContext.getBean(HelloService.class);

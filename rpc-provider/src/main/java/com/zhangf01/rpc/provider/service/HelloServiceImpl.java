@@ -13,7 +13,6 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public String sayHello(String userName) {
         String str = userName + " hello!";
-        log.info(str);
         return str;
     }
 }

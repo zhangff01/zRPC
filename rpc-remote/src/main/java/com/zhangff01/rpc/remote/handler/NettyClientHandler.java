@@ -1,5 +1,6 @@
 package com.zhangff01.rpc.remote.handler;
 
+import com.zhangff01.rpc.remote.model.RpcResponse;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import lombok.Data;
@@ -14,11 +15,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class NettyClientHandler extends ChannelInboundHandlerAdapter {
 
-    private Object result;
+    /**
+     * RPC 返回来的响应体
+     */
+    private RpcResponse result;
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        result = msg;
+        result = (RpcResponse) msg;
+        log.info("RPC 服务调用成功...");
     }
 
     @Override

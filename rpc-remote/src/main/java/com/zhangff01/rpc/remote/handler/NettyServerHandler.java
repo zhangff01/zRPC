@@ -61,6 +61,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
         //返回执行结果给客户端
         RpcResponse rpcResponse = new RpcResponse(result);
         ctx.writeAndFlush(rpcResponse).addListener(ChannelFutureListener.CLOSE);
+        log.info("RPC 服务{}#{}调用成功...", rpcRequest.getServiceName(), rpcRequest.getServiceMethod());
     }
 
     @Override
