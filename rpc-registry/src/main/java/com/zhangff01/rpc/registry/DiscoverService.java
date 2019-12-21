@@ -18,8 +18,6 @@ public class DiscoverService {
 
     private static Map<String, List<InetSocketAddress>> servicesMap = new ConcurrentHashMap<>();
 
-    public static RegisterCenterService registerCenterService;
-
     private static String registerHost;
 
     public static List<InetSocketAddress> discoverServices(String serviceName) {
@@ -30,7 +28,7 @@ public class DiscoverService {
         } else {
             results = new ArrayList<>();
         }
-
+        RegisterCenterService registerCenterService = RegisterCenterServiceFactory.getRegisterCenterServiceInstance(registerHost);
         String resIps = registerCenterService.getServiceIps(serviceName);
         if (resIps == null) {
             log.error(serviceName + "服务没有发现...");

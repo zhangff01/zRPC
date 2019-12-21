@@ -28,13 +28,15 @@ public class NettyServer {
 
     private int port;
     private int threadSize = 5;
+    private String registerHost;
 
     private EventLoopGroup bossGroup;
     private EventLoopGroup workerGroup;
 
-    public NettyServer(int port, int threadSize) {
+    public NettyServer(int port, int threadSize, String registerHost) {
         this.port = port;
         this.threadSize = threadSize;
+        this.registerHost = registerHost;
     }
 
     public void start() {
@@ -51,7 +53,7 @@ public class NettyServer {
                             ChannelPipeline pipeline = ch.pipeline();
                             pipeline.addLast(new MyDecoder(RpcRequest.class));
                             pipeline.addLast(new MyEncoder(RpcResponse.class));
-                            pipeline.addLast(new NettyServerHandler());
+                            pipeline.addLast(new NettyServerHandler(registerHost));
                         }
                     })
                     //BACKLOG用于构造服务端套接字ServerSocket对象，标识当服务器请求处理线程全满时，

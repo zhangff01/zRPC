@@ -1,7 +1,7 @@
 package com.zhangff01.rpc.registry.impl;
 
-import com.zhangff01.rpc.registry.DiscoverService;
 import com.zhangff01.rpc.registry.RegisterCenterService;
+import com.zhangff01.rpc.registry.RegisterCenterServiceFactory;
 import lombok.Data;
 
 import java.net.InetAddress;
@@ -41,7 +41,7 @@ public class JvmRegisterCenter implements RegisterCenterService {
     @Override
     public void init(String registerHost, int port) {
         try {
-            DiscoverService.registerCenterService = this;
+            RegisterCenterServiceFactory.putRegisterCenterServiceInstance(registerHost, this);
             //提供层的ip,这里存放本机的ip
             localIp = InetAddress.getLocalHost().getHostAddress() + ":" + port;
         } catch (UnknownHostException e) {

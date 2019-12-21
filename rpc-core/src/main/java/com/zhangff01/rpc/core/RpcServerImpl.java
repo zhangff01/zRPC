@@ -22,6 +22,7 @@ public class RpcServerImpl implements RpcServer {
     private NettyServer nettyServer;
     private final static ExecutorService executor = Executors.newSingleThreadExecutor();
     private RegisterCenterService registerCenterService;
+    private String registerHost;
 
     public RpcServerImpl() {
         init();
@@ -30,6 +31,7 @@ public class RpcServerImpl implements RpcServer {
     public RpcServerImpl(int port, int nThreads, String registerHost, Boolean isStart) {
         this.port = port;
         this.nThreads = nThreads;
+        this.registerHost = registerHost;
         registerCenterService = new JvmRegisterCenter();
         registerCenterService.init(registerHost, port);
         init();
@@ -52,7 +54,7 @@ public class RpcServerImpl implements RpcServer {
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                nettyServer = new NettyServer(port, nThreads);
+                nettyServer = new NettyServer(port, nThreads, registerHost);
                 nettyServer.start();
             }
         });

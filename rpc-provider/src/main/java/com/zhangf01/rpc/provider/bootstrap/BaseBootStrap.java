@@ -4,6 +4,7 @@ import com.zhangf01.rpc.provider.service.HelloService;
 import com.zhangf01.rpc.provider.service.HelloServiceImpl;
 import com.zhangff01.rpc.core.RpcServer;
 import com.zhangff01.rpc.core.RpcServerImpl;
+import com.zhangff01.rpc.core.proxy.RemoteServiceProxy;
 
 /**
  * @author zhangfeifei
@@ -19,5 +20,12 @@ public class BaseBootStrap {
         rpcServer.register(HelloService.class.getName(), HelloServiceImpl.class);
         //启动
         rpcServer.start();
+
+        //设置registry地址
+        RemoteServiceProxy.setRegistryAddress("127.0.0.1:2181");
+        //获取远程服务
+        HelloService helloService = RemoteServiceProxy.newRemoteProxyObject(HelloService.class);
+        String result = helloService.sayHello("zff");
+        System.out.println(result);
     }
 }
