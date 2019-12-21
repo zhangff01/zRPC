@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+    <!--Rpc服务启动-->
+    <bean id="zRpcConfig" class="com.zhangff01.rpc.core.spring.ZRpcConfig">
+        <!--端口-->
+        <property name="port" value="8081"/>
+        <!--线程数-->
+        <property name="nThreads" value="5"/>
+        <!--zookeeperHost地址-->
+        <property name="zookeeperAddress" value="127.0.0.1:2181"/>
+    </bean>
+
+    <!--服务注册 start-->
+    <util:map id="servicesMap" map-class="java.util.HashMap">
+        <entry key="com.zhangf01.rpc.provider.service.HelloService"
+               value="com.zhangf01.rpc.provider.service.HelloServiceImpl"/>
+    </util:map>
+    <bean id="rpcServerFactory" class="com.zhangff01.rpc.core.spring.RpcServerFactory">
+        <property name="zRpcConfig" ref="zRpcConfig"/>
+        <property name="services" ref="servicesMap"/>
+    </bean>
+    <!--服务注册 end-->
+</beans>
