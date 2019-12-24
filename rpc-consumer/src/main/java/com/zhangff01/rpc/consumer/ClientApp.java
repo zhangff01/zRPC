@@ -1,6 +1,6 @@
 package com.zhangff01.rpc.consumer;
 
-import com.zhangf01.rpc.provider.service.HelloService;
+import com.zhangff01.rpc.provider.service.HelloService;
 import com.zhangff01.rpc.core.proxy.RemoteServiceProxy;
 
 /**

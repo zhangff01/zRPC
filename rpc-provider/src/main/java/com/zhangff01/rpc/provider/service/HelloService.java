@@ -1,4 +1,4 @@
-package com.zhangf01.rpc.provider.service;
+package com.zhangff01.rpc.provider.service;
 
 /**
  * @author zhangfeifei

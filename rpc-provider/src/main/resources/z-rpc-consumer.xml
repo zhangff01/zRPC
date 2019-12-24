@@ -15,7 +15,7 @@
     </bean>
 
     <util:map id="referenceMap" map-class="java.util.HashMap">
-        <entry key="helloService" value="com.zhangf01.rpc.provider.service.HelloService"/>
+        <entry key="helloService" value="com.zhangff01.rpc.provider.service.HelloService"/>
     </util:map>
 
     <bean id="myRpcReference" class="com.zhangff01.rpc.core.spring.ZRpcReference">

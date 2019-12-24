@@ -1,7 +1,7 @@
-package com.zhangf01.rpc.provider.bootstrap;
+package com.zhangff01.rpc.provider.bootstrap;
 
-import com.zhangf01.rpc.provider.service.HelloService;
-import com.zhangf01.rpc.provider.service.HelloServiceImpl;
+import com.zhangff01.rpc.provider.service.HelloService;
+import com.zhangff01.rpc.provider.service.HelloServiceImpl;
 import com.zhangff01.rpc.core.RpcServer;
 import com.zhangff01.rpc.core.RpcServerImpl;
 import com.zhangff01.rpc.core.proxy.RemoteServiceProxy;
