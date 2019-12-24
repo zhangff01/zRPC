@@ -12,6 +12,10 @@
     <artifactId>rpc-registry</artifactId>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.6</version>
+        </dependency>
     </dependencies>
 </project>

@@ -1,7 +1,7 @@
 package com.zhangff01.rpc.core;
 
 import com.zhangff01.rpc.registry.RegisterCenterService;
-import com.zhangff01.rpc.registry.impl.JvmRegisterCenter;
+import com.zhangff01.rpc.registry.impl.ZookeeperRegisterCenter;
 import com.zhangff01.rpc.remote.NettyServer;
 import lombok.extern.slf4j.Slf4j;
 
@@ -32,7 +32,7 @@ public class RpcServerImpl implements RpcServer {
         this.port = port;
         this.nThreads = nThreads;
         this.registerHost = registerHost;
-        registerCenterService = new JvmRegisterCenter();
+        registerCenterService = new ZookeeperRegisterCenter();
         registerCenterService.init(registerHost, port);
         init();
         if (isStart.equals(Boolean.TRUE)) {
