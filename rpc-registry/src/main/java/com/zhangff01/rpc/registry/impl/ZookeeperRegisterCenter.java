@@ -69,7 +69,7 @@ public class ZookeeperRegisterCenter implements RegisterCenterService {
             }
             byte[] ipsBytes = zooKeeper.getData(BASE_PATH + "/" + className, false, null);
             String ips = new String(ipsBytes);
-            if (ips == null) {
+            if (ips == null || ips.equals("")) {
                 ips = localIp;
             } else {
                 ips += ";" + localIp;

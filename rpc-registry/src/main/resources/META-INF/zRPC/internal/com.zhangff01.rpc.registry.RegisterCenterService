@@ -1,0 +1,2 @@
+zookeeper=com.zhangff01.rpc.registry.impl.ZookeeperRegisterCenter
+jvm=com.zhangff01.rpc.registry.impl.JvmRegisterCenter

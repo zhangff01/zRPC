@@ -1,6 +1,6 @@
 package com.zhangff01.rpc.remote.handler;
 
-import com.zhangff01.rpc.common.ProtoStuffUtil;
+import com.zhangff01.rpc.common.util.ProtoStuffUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;

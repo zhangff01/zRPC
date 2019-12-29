@@ -53,7 +53,7 @@ public class JvmRegisterCenter implements RegisterCenterService {
     public void register(String className, Class clazz) {
         registerServices.put(className, clazz);
         String ips = registerCenterMap.get(className);
-        if (ips == null) {
+        if (ips == null || ips.equals("")) {
             ips = localIp;
         } else {
             ips += ";" + localIp;

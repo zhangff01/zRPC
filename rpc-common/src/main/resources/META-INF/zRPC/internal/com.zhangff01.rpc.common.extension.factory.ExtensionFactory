@@ -1,0 +1,2 @@
+adaptive=com.zhangff01.rpc.common.extension.factory.AdaptiveExtensionFactory
+spi=com.zhangff01.rpc.common.extension.factory.SpiExtensionFactory

@@ -1,10 +1,13 @@
 package com.zhangff01.rpc.registry;
 
+import com.zhangff01.rpc.common.extension.SPI;
+
 /**
  * @author zhangfeifei
  * @Description 注册中心
  * @create 2019/12/17
  */
+@SPI("zookeeper")
 public interface RegisterCenterService {
 
     /**

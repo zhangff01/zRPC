@@ -1,5 +1,6 @@
 package com.zhangff01.rpc.core;
 
+import com.zhangff01.rpc.common.extension.ExtensionLoader;
 import com.zhangff01.rpc.registry.RegisterCenterService;
 import com.zhangff01.rpc.registry.impl.ZookeeperRegisterCenter;
 import com.zhangff01.rpc.remote.NettyServer;
@@ -32,7 +33,7 @@ public class RpcServerImpl implements RpcServer {
         this.port = port;
         this.nThreads = nThreads;
         this.registerHost = registerHost;
-        registerCenterService = new ZookeeperRegisterCenter();
+        registerCenterService = ExtensionLoader.getExtensionLoader(RegisterCenterService.class).getExtension("jvm");
         registerCenterService.init(registerHost, port);
         init();
         if (isStart.equals(Boolean.TRUE)) {

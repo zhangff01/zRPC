@@ -1,4 +1,4 @@
-package com.zhangff01.rpc.common;
+package com.zhangff01.rpc.common.util;
 
 import io.protostuff.LinkedBuffer;
 import io.protostuff.ProtostuffIOUtil;
