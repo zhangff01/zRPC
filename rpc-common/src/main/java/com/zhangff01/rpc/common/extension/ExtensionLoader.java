@@ -408,7 +408,7 @@ public class ExtensionLoader<T> {
     //---- 下面是Adaptive注解逻辑 ----//
 
     /**
-     * 单例模式 获取代理类
+     * 单例模式 获取代理类[主要方法]
      *
      * @return
      */

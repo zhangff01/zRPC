@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author zhangfeifei
- * @Description ${todo}
+ * @Description 适配器注解
  * @create 2019/12/26
  */
 

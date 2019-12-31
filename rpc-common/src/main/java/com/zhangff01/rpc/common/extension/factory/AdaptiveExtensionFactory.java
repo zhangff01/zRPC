@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author zhangfeifei
- * @Description ${todo}
+ * @Description ExtensionFactory的适配器类
  * @create 2019/12/29
  */
 @Adaptive
