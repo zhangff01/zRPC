@@ -1,2 +1,2 @@
 # zRPC
-personal rpc demo
+Personal RPC Demo for study
